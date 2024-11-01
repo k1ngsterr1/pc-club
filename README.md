@@ -110,22 +110,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Expo](https://expo.dev/)
 - [React Navigation](https://reactnavigation.org/)
 
-## Contact
-
-For any questions or feedback, please contact:
-
-- Your Name: [your.email@example.com](mailto:your.email@example.com)
-
-```
-
-### Instructions for Use:
-1. **Customize:** Replace `Your Name` and `your.email@example.com` with your actual name and email.
-2. **Additional Information:** You can add more details about features or setup instructions specific to your project if needed.
-3. **Check Dependencies:** Make sure your project includes a `package.json` file with the necessary dependencies listed.
-
-This README provides a comprehensive overview of your project, making it easy for others to understand how to set it up and use it. If you need further adjustments or specific content, let me know!
-```
-
 ```
 
 ```
