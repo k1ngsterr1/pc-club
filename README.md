@@ -1,6 +1,3 @@
-Here’s a tailored README.md for your PC Club project based on the repository you provided:
-
-````markdown
 # PC Club Management App
 
 ## Overview
@@ -40,6 +37,7 @@ To get started, clone the repository to your local machine:
 git clone https://github.com/k1ngsterr1/pc-club.git
 cd pc-club
 ```
+
 ````
 
 ### 2. Install Dependencies
@@ -129,3 +127,4 @@ For any questions or feedback, please contact:
 
 This README provides a comprehensive overview of your project, making it easy for others to understand how to set it up and use it. If you need further adjustments or specific content, let me know!
 ```
+````
