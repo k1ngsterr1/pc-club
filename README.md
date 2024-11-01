@@ -38,8 +38,6 @@ git clone https://github.com/k1ngsterr1/pc-club.git
 cd pc-club
 ```
 
-````
-
 ### 2. Install Dependencies
 
 Install the necessary dependencies using Yarn:
@@ -127,4 +125,7 @@ For any questions or feedback, please contact:
 
 This README provides a comprehensive overview of your project, making it easy for others to understand how to set it up and use it. If you need further adjustments or specific content, let me know!
 ```
-````
+
+```
+
+```
