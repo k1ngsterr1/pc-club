@@ -1,8 +1,25 @@
 import React from "react";
-import { View } from "react-native";
+import { BlurView } from "expo-blur";
+import { LinearGradient } from "expo-linear-gradient";
+import { ImageBackground, StyleSheet, View } from "react-native";
 
-const StartScreen = () => {
-  return <View></View>;
+export const StartScreen = () => {
+  return (
+    <ImageBackground
+      source={require("../../../assets/images/blur.png")}
+      style={styles.background}
+      resizeMode="cover"
+    ></ImageBackground>
+  );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#252525",
+  },
+});
 
 export default StartScreen;

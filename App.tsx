@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
-import StartScreen from "@app/screens/start-screen";
-
-const Stack = createNativeStackNavigator();
+import { RootNavigator } from "@app/navigation/RootNavigator";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +23,6 @@ export default function App() {
 
   useEffect(() => {
     const prepareApp = async () => {
-      // Any additional setup can go here
       setIsLoading(false);
     };
 
@@ -37,16 +34,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Start"
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: "#FFF4F6" },
-        }}
-      >
-        <StartScreen />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <RootNavigator />
+      </GestureHandlerRootView>
+    </SafeAreaView>
   );
 }
