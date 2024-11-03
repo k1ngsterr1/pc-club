@@ -13,29 +13,21 @@ export const RegistrationScreen = () => {
       <View className=" flex items-center flex-col justify-between mt-36">
         <View className=" flex items-center flex-col mb-4">
           <Text weight="bold" className="text-light text-3xl">
-            Create Account
+            Sign In
           </Text>
         </View>
-        <View className="w-full items-center mt-20 mb-44">
+        <View className="w-full items-center mt-20 mb-36">
           <Input labelText="Phone Number" />
         </View>
 
         <MyTouchableOpacity
-          onPress={() => navigation.navigate("Login" as never)}
+          onPress={() => navigation.navigate("PhoneConfirmation" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
-            Sign Up
+            Sign In
           </Text>
         </MyTouchableOpacity>
-        <View className="flex items-center flex-row mt-4">
-          <Text className="text-light text-sm">Already a user?</Text>
-          <MyTouchableOpacity>
-            <Text weight="bold" className="text-main ml-1 text-sm">
-              Login
-            </Text>
-          </MyTouchableOpacity>
-        </View>
       </View>
     </Layout>
   );
