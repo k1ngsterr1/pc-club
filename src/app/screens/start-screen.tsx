@@ -1,7 +1,7 @@
 import React from "react";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 export const StartScreen = () => {
   return (
