@@ -1,24 +1,33 @@
 import { TextInput } from "react-native";
-import { useState } from "react";
 
 interface IInputprops {
   index: number;
-  activeIndex: number;
-  setActiveIndex: (index: number) => void;
+  active?: number;
+  handleActive: (index: number) => void;
+  inputRef: React.RefObject<TextInput>;
+  onNext: () => void;
 }
 
 export const ConfirmInput = ({
   index,
-  activeIndex,
-  setActiveIndex,
+  active,
+  handleActive,
+  inputRef,
+  onNext,
 }: IInputprops) => {
   return (
     <TextInput
-      onFocus={() => setActiveIndex(index)}
+      ref={inputRef}
       className={`${
-        activeIndex === index ? "border-main" : ""
-      } rounded-md w-16 h-16 border-[#FFFFFF0D] border text-center text-4xl text-main`}
+        active === index ? "border-main " : "border-[#FFFFFF0D]"
+      } rounded-md w-16 h-16 border text-center text-4xl text-main`}
       maxLength={1}
+      onFocus={() => handleActive(index)}
+      onChangeText={(text) => {
+        if (text.length === 1) {
+          onNext();
+        }
+      }}
     />
   );
 };
