@@ -4,7 +4,7 @@ import { Layout } from "@app/layouts/layout";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
 import { ConfirmInput } from "@shared/ui/ConfirmInput/ui/confirm-input";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useActiveItem } from "@shared/model/useInputStore";
 
 const inputs = [1, 2, 3, 4];
@@ -12,7 +12,6 @@ const inputs = [1, 2, 3, 4];
 export const PhoneConfirmationScreen = () => {
   const { active, setActive } = useActiveItem();
 
-  // Create an array of refs for each input
   const inputRefs = inputs.map(() => useRef<TextInput>(null));
 
   const handleActive = (index: number) => {
@@ -21,10 +20,13 @@ export const PhoneConfirmationScreen = () => {
 
   const handleNextInput = (index: number) => {
     if (index < inputs.length - 1) {
-      // Focus the next input if it exists
       inputRefs[index + 1].current?.focus();
     }
   };
+
+  useEffect(() => {
+    inputRefs[0].current?.focus();
+  }, []);
 
   const navigation = useNavigation();
 
@@ -50,7 +52,7 @@ export const PhoneConfirmationScreen = () => {
           ))}
         </View>
         <MyTouchableOpacity
-          onPress={() => navigation.navigate("PhoneConfirmation" as never)}
+          onPress={() => navigation.navigate("Home" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
