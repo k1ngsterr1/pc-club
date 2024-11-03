@@ -1,10 +1,25 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, ImageBackground, StyleSheet } from "react-native";
 
 interface ILayout {
   children: React.ReactNode;
 }
 
 export const Layout: React.FC<ILayout> = ({ children }) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
+  return (
+    <ImageBackground
+      source={require("../../../assets/images/blur.png")}
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <SafeAreaView>{children}</SafeAreaView>
+    </ImageBackground>
+  );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    backgroundColor: "#252525",
+  },
+});
