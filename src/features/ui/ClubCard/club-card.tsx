@@ -3,6 +3,8 @@ import { BlurView } from "expo-blur";
 import Text from "@shared/ui/Text/text";
 import { Separator } from "@shared/ui/Separator/separator";
 import BookingIcon from "@shared/icons/booking-icon";
+import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
+import { useNavigation } from "@react-navigation/native";
 
 interface IClubCardProps {
   clubName: string;
@@ -21,6 +23,8 @@ export const ClubCard = ({
   clubLocation,
   distance,
 }: IClubCardProps) => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -64,9 +68,14 @@ export const ClubCard = ({
               <Text className="text-main">Время работы</Text>
             </View>
             <View className="w-[35%] flex items-center gap-y-2 flex-col">
-              <View className="w-full items-center justify-center bg-main rounded-[32px] h-7">
-                <BookingIcon />
-              </View>
+              <MyTouchableOpacity
+                className="w-full"
+                onPress={() => navigation.navigate("BookScreen" as never)}
+              >
+                <View className="w-full items-center justify-center bg-main rounded-[32px] h-7">
+                  <BookingIcon />
+                </View>
+              </MyTouchableOpacity>
               <Text className="text-main">Бронировать</Text>
             </View>
           </View>

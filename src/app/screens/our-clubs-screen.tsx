@@ -41,9 +41,8 @@ export const LocationScreen = () => {
         <View className="mt-4">
           {clubsContent.map((club, index) => {
             return (
-              <View className="mb-4 flex flex-col">
+              <View className="mb-4 flex flex-col" key={index}>
                 <ClubCard
-                  key={index}
                   clubName={club.clubName}
                   clubLocation={club.clubLocation}
                   distance={club.distance}
