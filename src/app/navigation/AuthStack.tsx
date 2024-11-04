@@ -7,6 +7,7 @@ import { PhoneConfirmationScreen } from "@app/screens/phone-confirmation-screen"
 import { HomeScreen } from "@app/screens/home-screen";
 import { LocationScreen } from "@app/screens/our-clubs-screen";
 import { SettingsScreen } from "@app/screens/settings-screen";
+import { MiniBar } from "@app/screens/mini-bar-screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,5 +25,6 @@ export const AuthStack = () => (
     <Stack.Screen name="Home" component={HomeScreen} />
     <Stack.Screen name="OurClubs" component={LocationScreen} />
     <Stack.Screen name="Settings" component={SettingsScreen} />
+    <Stack.Screen name="MiniBar" component={MiniBar} />
   </Stack.Navigator>
 );
