@@ -5,7 +5,7 @@ import Text from "@shared/ui/Text/text";
 
 import BackArrowIcon from "@shared/icons/back-arrow-icon";
 import BellIcon from "@shared/icons/bell-icon";
-import { useNotificationPopupStore } from "@entities/model/use-notification-popup";
+import { useNotificationPopupStore } from "@entities/notification/model/use-notification-popup";
 
 interface IHeaderProps {
   isLogo?: boolean;

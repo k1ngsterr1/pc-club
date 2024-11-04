@@ -50,7 +50,7 @@ export const HomeScreen = () => {
       </View>
       <ReusableSwiper
         data={clubsContent}
-        loop={false}
+        loop={true}
         autoplay={false}
         renderItem={(item) => (
           <ClubCard
