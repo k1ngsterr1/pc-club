@@ -4,6 +4,8 @@ import Text from "@shared/ui/Text/text";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 
 import CartIcon from "@shared/icons/cart-icon";
+import { usePaymentPopupStore } from "@entities/payment/model/use-payment-popup";
+import { useNotificationPopupStore } from "@entities/notification/model/use-notification-popup";
 
 interface IMiniBarCardProps {
   item: string;
@@ -11,6 +13,8 @@ interface IMiniBarCardProps {
 }
 
 export const MiniBarcCard = ({ item, price }: IMiniBarCardProps) => {
+  const { showPaymentPopup, hidePaymentPopup } = usePaymentPopupStore();
+
   return (
     <View
       className="w-[170px]"
@@ -28,7 +32,10 @@ export const MiniBarcCard = ({ item, price }: IMiniBarCardProps) => {
             <Text weight="medium" className=" text-lg text-main">
               {price}
             </Text>
-            <MyTouchableOpacity className="bg-main w-[40%] items-center justify-center rounded-[16px]">
+            <MyTouchableOpacity
+              onPress={() => showPaymentPopup()}
+              className="bg-main w-[40%] items-center justify-center rounded-[16px]"
+            >
               <CartIcon />
             </MyTouchableOpacity>
           </View>
