@@ -1,29 +1,14 @@
 import { useNavigation, useNavigationState } from "@react-navigation/native";
-import React, { FC } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
-import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
-import { ReactNode } from "react";
 import { BlurView } from "expo-blur";
+import { TabButton } from "@shared/ui/TabButton/tab-button";
 
 // Icons
 import HomeIcon from "@shared/icons/home-icon";
 import LocationIcon from "@shared/icons/location-icon";
 import ClockIcon from "@shared/icons/clock-icon";
 import SettingsIcon from "@shared/icons/settings-icon";
-
-interface TabTextProps {
-  isActive: boolean;
-  onPress: () => void;
-  icon: ReactNode;
-}
-
-export const TabText: FC<TabTextProps> = ({ isActive, onPress, icon }) => {
-  return (
-    <MyTouchableOpacity onPress={onPress}>
-      {React.cloneElement(icon as React.ReactElement<any>, { isActive })}
-    </MyTouchableOpacity>
-  );
-};
 
 export const BottomTabNavigation = () => {
   const navigation = useNavigation();
@@ -42,22 +27,22 @@ export const BottomTabNavigation = () => {
   return (
     <BlurView intensity={48} style={styles.glassContainer}>
       <View style={styles.innerContainer}>
-        <TabText
+        <TabButton
           icon={<HomeIcon />}
           isActive={isActive("Home")}
           onPress={() => handleNavigation("Home")}
         />
-        <TabText
+        <TabButton
           icon={<LocationIcon />}
-          isActive={isActive("Location")}
-          onPress={() => handleNavigation("Location")}
+          isActive={isActive("OurClubs")}
+          onPress={() => handleNavigation("OurClubs")}
         />
-        <TabText
+        <TabButton
           icon={<ClockIcon />}
           isActive={isActive("Clock")}
           onPress={() => handleNavigation("Clock")}
         />
-        <TabText
+        <TabButton
           icon={<SettingsIcon />}
           isActive={isActive("Settings")}
           onPress={() => handleNavigation("Settings")}
