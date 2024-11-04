@@ -25,7 +25,7 @@ export const MiniBarcCard = ({ item, price }: IMiniBarCardProps) => {
     >
       <BlurView intensity={16} tint="light">
         <View className="px-4 py-4 flex flex-col justify-between h-[150px] ">
-          <Text weight="medium" className=" text-lg text-light">
+          <Text weight="medium" className=" text-lg text-light w-[70%]">
             {item}
           </Text>
           <View className=" flex flex-row justify-between">
