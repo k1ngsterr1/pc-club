@@ -25,7 +25,7 @@ export const BottomTabNavigation = () => {
   const isActive = (screen: string) => routeName === screen;
 
   return (
-    <BlurView intensity={48} style={styles.glassContainer}>
+    <BlurView intensity={40} style={styles.glassContainer}>
       <View style={styles.innerContainer}>
         <TabButton
           icon={<HomeIcon />}
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     position: "absolute",
     bottom: 0,
-    backgroundColor: "rgba(217, 217, 217, 0.1)",
+    backgroundColor: "rgba(217, 217, 217, 0)",
     overflow: "hidden",
   },
   innerContainer: {

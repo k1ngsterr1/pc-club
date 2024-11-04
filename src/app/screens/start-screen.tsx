@@ -9,7 +9,7 @@ export const StartScreen = () => {
 
   return (
     <Layout>
-      <View className=" flex items-center flex-col justify-between h-[60%] mt-36">
+      <View className=" flex items-center flex-col justify-between h-full mt-36">
         <View className=" flex items-center flex-col">
           <Text weight="bold" className="text-light text-3xl">
             Welcome to
