@@ -5,12 +5,14 @@ import Text from "@shared/ui/Text/text";
 
 import BackArrowIcon from "@shared/icons/back-arrow-icon";
 import BellIcon from "@shared/icons/bell-icon";
+import { useNotificationPopupStore } from "@entities/model/use-notification-popup";
 
 interface IHeaderProps {
   isLogo?: boolean;
 }
 
 export const Header = ({ isLogo }: IHeaderProps) => {
+  const { showPopup } = useNotificationPopupStore();
   const navigation = useNavigation();
 
   return (
@@ -25,7 +27,7 @@ export const Header = ({ isLogo }: IHeaderProps) => {
           onPress={() => navigation.goBack()}
         />
       )}
-      <RoundedButton icon={<BellIcon />} />
+      <RoundedButton icon={<BellIcon />} onPress={showPopup} />
     </View>
   );
 };

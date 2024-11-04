@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { BottomTabNavigation } from "@widgets/ui/BottomTabNavigation/bottom-tab-navigation";
 import { Header } from "@features/ui/Header/header";
+import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
 
 interface ILayout {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export const Layout: React.FC<ILayout> = ({
       style={styles.background}
       resizeMode="cover"
     >
+      <NotificationPopup />
       <SafeAreaView className="flex-1">
         {isHeader && <Header isLogo={isLogo} />}
         <ScrollView

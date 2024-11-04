@@ -11,7 +11,7 @@ type ReusableSwiperProps<T> = {
   loop?: boolean;
   autoplay?: boolean;
   autoplayTimeout?: number;
-  gap?: number; // New prop to control the gap size
+  gap?: number;
 };
 
 const ReusableSwiper = <T,>({
@@ -21,7 +21,7 @@ const ReusableSwiper = <T,>({
   loop = true,
   autoplay = true,
   autoplayTimeout = 3,
-  gap = 20, // Default gap size
+  gap = 20,
 }: ReusableSwiperProps<T>) => {
   return (
     <Swiper
