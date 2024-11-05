@@ -5,7 +5,7 @@ import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opaci
 import { useNavigation } from "@react-navigation/native";
 import { ConfirmInput } from "@shared/ui/ConfirmInput/ui/confirm-input";
 import { useRef, useEffect } from "react";
-import { useActiveItem } from "@shared/model/useInputStore";
+import { useActiveItem } from "@shared/model/useActiveItemStore";
 
 const inputs = [1, 2, 3, 4];
 
