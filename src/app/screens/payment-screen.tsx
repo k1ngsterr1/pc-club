@@ -6,7 +6,7 @@ import Text from "@shared/ui/Text/text";
 import React from "react";
 import { View } from "react-native";
 
-const PaymentScreen = () => {
+export const PaymentScreen = () => {
   return (
     <Layout isHeader isTab isPlan>
       <Text className="text-white text-center text-lg mt-8">
@@ -41,5 +41,3 @@ const PaymentScreen = () => {
     </Layout>
   );
 };
-
-export default PaymentScreen;
