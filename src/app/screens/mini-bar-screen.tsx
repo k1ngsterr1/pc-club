@@ -18,7 +18,7 @@ const itemWidth = (screenWidth - 48) / 2;
 
 export const MiniBar = () => {
   return (
-    <Layout isHeader isTab>
+    <Layout isHeader isTab isNotification>
       <View className="flex flex-col mt-8">
         <Text weight="bold" className="text-light text-2xl">
           Мини-Бар

@@ -7,7 +7,7 @@ export const HoursScreen = () => {
   const { hours, setHours } = useChooseHoursStore();
 
   return (
-    <Layout isHeader>
+    <Layout isHeader isNotification>
       <View className="flex flex-col mt-8 items-center">
         <View className="items-start justify-start flex w-full">
           <Text weight="bold" className="text-light text-2xl ">

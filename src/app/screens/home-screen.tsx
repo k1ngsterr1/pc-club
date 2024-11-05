@@ -41,7 +41,7 @@ export const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Layout isTab isHeader isLogo>
+    <Layout isTab isHeader isLogo isNotification>
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">

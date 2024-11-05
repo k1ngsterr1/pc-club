@@ -17,8 +17,14 @@ interface IHeaderProps {
 
 export const Header = ({ isLogo, isNotification, isPlan }: IHeaderProps) => {
   const { showPopup } = useNotificationPopupStore();
+  const { hidePaymentPopup } = usePaymentPopupStore();
   const navigation = useNavigation();
   const { plan } = usePlanStore();
+
+  const handleShowPopup = () => {
+    showPopup();
+    hidePaymentPopup();
+  };
 
   return (
     <View className="flex flex-row items-center justify-between mx-4">
@@ -43,7 +49,7 @@ export const Header = ({ isLogo, isNotification, isPlan }: IHeaderProps) => {
       )}
 
       {isNotification && (
-        <RoundedButton icon={<BellIcon />} onPress={showPopup} />
+        <RoundedButton icon={<BellIcon />} onPress={handleShowPopup} />
       )}
     </View>
   );

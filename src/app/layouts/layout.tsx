@@ -18,7 +18,6 @@ interface ILayout {
   isHeader?: boolean;
   isNotification?: boolean;
   isPlan?: boolean;
-  plan?: string;
   isLogo?: boolean;
 }
 
@@ -29,7 +28,6 @@ export const Layout: React.FC<ILayout> = ({
   isLogo,
   isNotification,
   isPlan,
-  plan,
 }) => {
   return (
     <ImageBackground
