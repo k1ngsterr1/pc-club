@@ -36,7 +36,7 @@ export const Layout: React.FC<ILayout> = ({
       <SafeAreaView className="flex-1">
         {isHeader && <Header isLogo={isLogo} />}
         <ScrollView
-          contentContainerStyle={{ paddingBottom: isTab ? 16 : 0 }}
+          contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}
           className="flex-1"
         >
           <View className="flex-1 px-4">{children}</View>
