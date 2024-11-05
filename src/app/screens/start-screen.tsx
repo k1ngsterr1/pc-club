@@ -8,8 +8,8 @@ export const StartScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Layout>
-      <View className=" flex items-center flex-col justify-between h-full mt-36">
+    <Layout isScrollable={false}>
+      <View className=" flex items-center flex-col justify-between h-[50%] mt-36">
         <View className=" flex items-center flex-col">
           <Text weight="bold" className="text-white text-3xl">
             Welcome to
@@ -20,7 +20,7 @@ export const StartScreen = () => {
         </View>
         <MyTouchableOpacity
           onPress={() => navigation.navigate("Registration" as never)}
-          className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
+          className="bg-main rounded-[32px] w-64 h-12 flex items-center mt-24 justify-center"
         >
           <Text weight="bold" className=" text-lg">
             Start

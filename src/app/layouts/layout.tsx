@@ -11,6 +11,7 @@ import { Header } from "@features/ui/Header/header";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
 import { Loader } from "@shared/ui/Loader/loader";
 import { PaymentPopup } from "@features/ui/PaymentPopup/payment-popup";
+import { CategoriesPopup } from "@features/ui/CategoriesPopup/categories-popup";
 
 interface ILayout {
   children: React.ReactNode;
@@ -35,6 +36,7 @@ export const Layout: React.FC<ILayout> = ({
     >
       <NotificationPopup />
       <PaymentPopup />
+      <CategoriesPopup />
       <SafeAreaView className="flex-1">
         {isHeader && <Header isLogo={isLogo} />}
         {isScrollable ? (

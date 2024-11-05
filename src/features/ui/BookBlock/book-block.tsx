@@ -3,9 +3,9 @@ import { View } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { TabSwitcher } from "@shared/ui/TabSwitcher/tab-switcher";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
-import { useNavigation } from "@react-navigation/native";
 import { TakePlacetButton } from "@shared/ui/TakePlaceButton/take-place-button";
 import { useTakePlaceStore } from "@entities/takeplace/model/useTakePlaceStore";
+import { useSelectCategoryStore } from "@entities/categories/model/use-select-category-store";
 
 const typesPlace = [
   { text: "Свободно", color: "bg-[#FFFFFF40]" },
@@ -33,9 +33,8 @@ const takenPlacesContent = [
 ];
 
 export const BookBlock = () => {
-  const navigation = useNavigation();
-
   const { take, isTake } = useTakePlaceStore();
+  const { showPopup } = useSelectCategoryStore();
 
   const handleTakePlace = (index: number) => {
     isTake(index);
@@ -64,7 +63,10 @@ export const BookBlock = () => {
               );
             })}
           </View>
-          <MyTouchableOpacity className="bg-main rounded-[32px] w-full h-10 mt-8 flex items-center justify-center">
+          <MyTouchableOpacity
+            onPress={() => showPopup()}
+            className="bg-main rounded-[32px] w-full h-10 mt-8 flex items-center justify-center"
+          >
             <Text weight="medium" className="text-dark text-base">
               STANDART
             </Text>

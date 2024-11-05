@@ -31,25 +31,25 @@ export const PhoneConfirmationScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Layout>
-      <View className="flex items-center flex-col justify-between mt-36">
+    <Layout isScrollable={false}>
+      <View className="flex items-center flex-col justify-between h-[50%] mt-36">
         <View className="flex items-center flex-col mb-4">
           <Text weight="bold" className="text-light text-3xl">
             Confirm Your Phone
           </Text>
-        </View>
-        <View className="flex flex-row mb-32 mt-12 items-center">
-          {inputs.map((input, index) => (
-            <View key={input} className={`${index !== 0 ? "ml-4" : ""}`}>
-              <ConfirmInput
-                index={input}
-                active={active}
-                handleActive={handleActive}
-                inputRef={inputRefs[index]}
-                onNext={() => handleNextInput(index)}
-              />
-            </View>
-          ))}
+          <View className="flex flex-row mb-32 mt-12 items-center">
+            {inputs.map((input, index) => (
+              <View key={input} className={`${index !== 0 ? "ml-4" : ""}`}>
+                <ConfirmInput
+                  index={input}
+                  active={active}
+                  handleActive={handleActive}
+                  inputRef={inputRefs[index]}
+                  onNext={() => handleNextInput(index)}
+                />
+              </View>
+            ))}
+          </View>
         </View>
         <MyTouchableOpacity
           onPress={() => navigation.navigate("Home" as never)}
