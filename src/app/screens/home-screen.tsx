@@ -38,6 +38,8 @@ const clubsContent = [
 ];
 
 export const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <Layout isTab isHeader isLogo>
       <View className="mt-8">

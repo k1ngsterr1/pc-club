@@ -16,6 +16,9 @@ interface ILayout {
   children: React.ReactNode;
   isTab?: boolean;
   isHeader?: boolean;
+  isNotification?: boolean;
+  isPlan?: boolean;
+  plan?: string;
   isLogo?: boolean;
 }
 
@@ -24,6 +27,9 @@ export const Layout: React.FC<ILayout> = ({
   isTab,
   isHeader,
   isLogo,
+  isNotification,
+  isPlan,
+  plan,
 }) => {
   return (
     <ImageBackground
@@ -34,7 +40,13 @@ export const Layout: React.FC<ILayout> = ({
       <NotificationPopup />
       <PaymentPopup />
       <SafeAreaView className="flex-1">
-        {isHeader && <Header isLogo={isLogo} />}
+        {isHeader && (
+          <Header
+            isLogo={isLogo}
+            isPlan={isPlan}
+            isNotification={isNotification}
+          />
+        )}
         <ScrollView
           contentContainerStyle={{ paddingBottom: isTab ? 16 : 0 }}
           className="flex-1"
