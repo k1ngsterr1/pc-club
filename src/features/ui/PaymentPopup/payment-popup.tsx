@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   View,
-  TouchableOpacity,
   TextInput,
   Animated,
   Dimensions,
@@ -21,14 +20,14 @@ export const PaymentPopup = () => {
   const translateY = useRef(new Animated.Value(height)).current;
   const panY = useRef(new Animated.Value(0)).current;
 
-  const resetPositionAnim = Animated.timing(panY, {
-    toValue: 0,
+  const closeAnim = Animated.timing(translateY, {
+    toValue: height,
     duration: 300,
     useNativeDriver: true,
   });
 
-  const closeAnim = Animated.timing(translateY, {
-    toValue: height,
+  const resetPositionAnim = Animated.timing(panY, {
+    toValue: 0,
     duration: 300,
     useNativeDriver: true,
   });
@@ -36,14 +35,16 @@ export const PaymentPopup = () => {
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: (_, gestureState) => {
-        return gestureState.dy > 5;
+      onMoveShouldSetPanResponder: (_, gestureState) => gestureState.dy > 0, // Only respond to downward drags
+      onPanResponderMove: (_, gestureState) => {
+        if (gestureState.dy > 0) {
+          // Allow only downward movement
+          panY.setValue(gestureState.dy);
+        }
       },
-      onPanResponderMove: Animated.event([null, { dy: panY }], {
-        useNativeDriver: false,
-      }),
       onPanResponderRelease: (_, gestureState) => {
         if (gestureState.dy > 50) {
+          // Threshold to close
           closeAnim.start(() => {
             hidePaymentPopup();
             panY.setValue(0);
