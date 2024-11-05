@@ -17,6 +17,7 @@ interface ILayout {
   isTab?: boolean;
   isHeader?: boolean;
   isLogo?: boolean;
+  isScrollable?: boolean;
 }
 
 export const Layout: React.FC<ILayout> = ({
@@ -24,6 +25,7 @@ export const Layout: React.FC<ILayout> = ({
   isTab,
   isHeader,
   isLogo,
+  isScrollable = true,
 }) => {
   return (
     <ImageBackground
@@ -35,15 +37,18 @@ export const Layout: React.FC<ILayout> = ({
       <PaymentPopup />
       <SafeAreaView className="flex-1">
         {isHeader && <Header isLogo={isLogo} />}
-        <ScrollView
-          contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}
-          className="flex-1"
-        >
+        {isScrollable ? (
+          <ScrollView
+            contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}
+            className="flex-1"
+          >
+            <View className="flex-1 px-4">{children}</View>
+          </ScrollView>
+        ) : (
           <View className="flex-1 px-4">{children}</View>
-        </ScrollView>
+        )}
         {isTab && <BottomTabNavigation />}
       </SafeAreaView>
-      {isTab && <BottomTabNavigation />}
     </ImageBackground>
   );
 };

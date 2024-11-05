@@ -1568,6 +1568,13 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@quidone/react-native-wheel-picker@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@quidone/react-native-wheel-picker/-/react-native-wheel-picker-1.2.1.tgz#a6fab002edd17f17c424e0e73c2c2c7fa2314d57"
+  integrity sha512-hSJ7vjT++xHNHR8wcCYTBYS41+ujM7MV8D6/hulYFI954hWj4X8hPYP+jX7iVLsP3M3lfMqFEXJdlrJjgNuzQQ==
+  dependencies:
+    "@rozhkov/react-useful-hooks" "^1.0.9"
+
 "@radix-ui/react-compose-refs@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.0.0.tgz#37595b1f16ec7f228d698590e78eeed18ff218ae"
@@ -2070,6 +2077,13 @@
     lighthouse-logger "^1.0.0"
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
+
+"@rozhkov/react-useful-hooks@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@rozhkov/react-useful-hooks/-/react-useful-hooks-1.0.9.tgz#13eef9eca0e46d26a64c3a5727c7de2e9a5e4a2f"
+  integrity sha512-RffdvTrJI7RIvQOYM8/JrDZguNLpKCGjh7UyOjepiJRDtjM10ef+QX0xa6vOLReQ+8kzubBjQ42YM6aj1GotDg==
+  dependencies:
+    default-values "^1.0.1"
 
 "@segment/loosely-validate-event@^2.0.0":
   version "2.0.0"
@@ -3526,6 +3540,11 @@ default-gateway@^4.2.0:
     execa "^1.0.0"
     ip-regex "^2.1.0"
 
+default-values@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/default-values/-/default-values-1.0.2.tgz#cf104c52185c0e60a691113ba0a3880ed4d4d2ed"
+  integrity sha512-OaZEvojjexigvv1IT6N0rKUD5Af7fG11a0jg87jySv5xzjc2+IEW9oWNvqxWLHGhShRRZ0QopCGzGjJv/aY+mw==
+
 defaults@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/defaults/-/defaults-1.0.4.tgz#b0b02062c1e2aa62ff5d9528f0f98baa90978d7a"
@@ -3992,6 +4011,11 @@ expo-font@~12.0.10, expo-font@~12.0.9:
   integrity sha512-Q1i2NuYri3jy32zdnBaHHCya1wH1yMAsI+3CCmj9zlQzlhsS9Bdwcj2W3c5eU5FvH2hsNQy4O+O1NnM6o/pDaQ==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-haptics@~13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-13.0.1.tgz#35679c7fde4ae1c21ae3bc2d2cb34c266049dc2c"
+  integrity sha512-qG0EOLDE4bROVT3DtUSyV9g3iB3YFu9j3711X7SNNEnBDXc+2/p3wGDPTnJvPW0ao6HG3/McAOrBQA5hVSdWng==
 
 expo-keep-awake@~13.0.2:
   version "13.0.2"
@@ -5866,16 +5890,6 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
 
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
-
-lodash.isobject@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
-  integrity sha512-3/Qptq2vr7WeJbB4KHUSKlq8Pl7ASXi3UG6CMbBm8WRtXi8+GHm7mKaU3urfpSEzWe2wCIChs6/sdocUsTKJiA==
-
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
@@ -7197,14 +7211,6 @@ react-native-linear-gradient@^2.8.3:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz#9a116649f86d74747304ee13db325e20b21e564f"
   integrity sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA==
-
-react-native-picker-select@^9.3.1:
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-9.3.1.tgz#8a2ad51c286fcd54ef60fb883842ec1895c15003"
-  integrity sha512-o621HcsKJfJkpYeP/PZQiZTKbf8W7FT08niLFL0v1pGkIQyak5IfzfinV2t+/l1vktGwAH2Tt29LrP/Hc5fk3A==
-  dependencies:
-    lodash.isequal "^4.5.0"
-    lodash.isobject "^3.0.2"
 
 react-native-reanimated@~3.10.1:
   version "3.10.1"
