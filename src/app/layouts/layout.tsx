@@ -37,7 +37,6 @@ export const Layout: React.FC<ILayout> = ({
     >
       <NotificationPopup />
       <PaymentPopup />
-      <EqualizerLoader />
       <SafeAreaView className="flex-1">
         {isHeader && (
           <Header
