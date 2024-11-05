@@ -8,6 +8,7 @@ import { BarSwiper } from "@features/ui/BarSwiper/bar-swiper";
 import ReusableSwiper from "@features/ui/Swiper/swiper";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
+import EqualizerLoader from "@shared/ui/Loader/loader";
 
 const clubsContent = [
   {

@@ -1,3 +1,4 @@
+import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { BlurView } from "expo-blur";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
@@ -23,7 +24,7 @@ const PaymentSelector: React.FC<IPaymentSelector> = ({
   };
 
   return (
-    <TouchableOpacity
+    <MyTouchableOpacity
       onPress={handlePress}
       style={{ marginTop }}
       className={`rounded-lg overflow-hidden ${
@@ -41,7 +42,7 @@ const PaymentSelector: React.FC<IPaymentSelector> = ({
           <Text className="text-main text-xl font-normal">{price}тг</Text>
         </View>
       </BlurView>
-    </TouchableOpacity>
+    </MyTouchableOpacity>
   );
 };
 

@@ -16,7 +16,7 @@ type MiniBarItem = {
   price: string;
 };
 
-type Slide = MiniBarItem[]; // Each slide contains an array of MiniBarItem
+type Slide = MiniBarItem[];
 
 const miniBarContent: MiniBarItem[] = [
   { item: "Вода ASU, 0.5л.", price: "500₸" },
@@ -26,6 +26,7 @@ const miniBarContent: MiniBarItem[] = [
   { item: "Чай Lipton, 0.5л.", price: "700₸" },
   { item: "Кофе, 0.5л.", price: "800₸" },
   { item: "Сок Rich, 0.33л.", price: "500₸" },
+  { item: "Кофе, 0.5л.", price: "800₸" },
 ];
 
 const groupItems = (data: MiniBarItem[], itemsPerSlide: number): Slide[] => {

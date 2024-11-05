@@ -1,6 +1,7 @@
 import { BlurView } from "expo-blur";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import MyTouchableOpacity from "../MyTouchableOpacity/my-touchable-opacity";
 
 interface CheckboxProps {
   label: string;
@@ -21,7 +22,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   };
 
   return (
-    <TouchableOpacity
+    <MyTouchableOpacity
       onPress={handlePress}
       style={{ marginTop }}
       className="rounded-lg overflow-hidden "
@@ -38,7 +39,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           }`}
         />
       </BlurView>
-    </TouchableOpacity>
+    </MyTouchableOpacity>
   );
 };
 

@@ -105,14 +105,14 @@ export const PaymentPopup = () => {
             </View>
           </View>
           <View className="flex-row justify-between mb-4"></View>
-          <TouchableOpacity
+          <MyTouchableOpacity
             className="bg-main rounded-full py-3 mt-4 px-6 w-full"
             onPress={handleContinue}
           >
             <Text className="text-dark font-semibold text-center">
               Continue
             </Text>
-          </TouchableOpacity>
+          </MyTouchableOpacity>
         </ScrollView>
       </BlurView>
     </Animated.View>

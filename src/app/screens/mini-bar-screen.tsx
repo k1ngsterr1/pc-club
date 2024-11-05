@@ -11,6 +11,7 @@ const miniBarContent = [
   { item: "Вода ASU, 0.5л.", price: "500₸" },
   { item: "Вода ASU, 0.5л.", price: "500₸" },
   { item: "Вода ASU, 0.5л.", price: "500₸" },
+  { item: "Вода ASU, 0.5л.", price: "500₸" },
 ];
 
 const screenWidth = Dimensions.get("window").width;

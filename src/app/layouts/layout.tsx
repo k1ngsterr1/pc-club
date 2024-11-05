@@ -9,7 +9,7 @@ import {
 import { BottomTabNavigation } from "@widgets/ui/BottomTabNavigation/bottom-tab-navigation";
 import { Header } from "@features/ui/Header/header";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
-import { Loader } from "@shared/ui/Loader/loader";
+import EqualizerLoader from "@shared/ui/Loader/loader";
 import { PaymentPopup } from "@features/ui/PaymentPopup/payment-popup";
 
 interface ILayout {
@@ -37,6 +37,7 @@ export const Layout: React.FC<ILayout> = ({
     >
       <NotificationPopup />
       <PaymentPopup />
+      <EqualizerLoader />
       <SafeAreaView className="flex-1">
         {isHeader && (
           <Header
