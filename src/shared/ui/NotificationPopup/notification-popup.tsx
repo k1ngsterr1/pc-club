@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from "react-native";
 import { BlurView } from "expo-blur";
-import { useActiveItem } from "@shared/model/useInputStore";
+import { useActiveItem } from "@shared/model/useActiveItemStore";
 import { useNotificationPopupStore } from "@entities/notification/model/use-notification-popup";
 import { NotificationTab } from "@entities/ui/NotificationTab/notifcation-tab";
 

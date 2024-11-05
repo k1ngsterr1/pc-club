@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, Linking } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 
@@ -7,6 +7,7 @@ import CardIcon from "@shared/icons/card-icon";
 import CityIcon from "@shared/icons/city-icon";
 import LanguageIcon from "@shared/icons/language-icon";
 import { SettingsCard } from "@features/ui/SettingsCard/settings-card";
+import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 
 const settingsContent = [
   {
@@ -25,6 +26,15 @@ const settingsContent = [
   },
 ];
 
+const openLink = async (url: string) => {
+  const supported = await Linking.canOpenURL(url);
+
+  if (supported) {
+    // Open the link in the default browser
+    await Linking.openURL(url);
+  }
+};
+
 export const SettingsScreen = () => {
   return (
     <Layout isTab isHeader isLogo>
@@ -34,9 +44,8 @@ export const SettingsScreen = () => {
         </Text>
         {settingsContent.map((item, index) => {
           return (
-            <View className=" flex flex-col mb-4">
+            <View className=" flex flex-col mb-4" key={index}>
               <SettingsCard
-                key={index}
                 title={item.title}
                 icon={item.icon}
                 text={item.text}
@@ -44,10 +53,12 @@ export const SettingsScreen = () => {
             </View>
           );
         })}
-        <View className="flex items-center mt-8">
-          <Text className="text-[#FFFFFF40]">Powered By</Text>
-          <Text className="text-main">Spark Studio</Text>
-        </View>
+        <MyTouchableOpacity onPress={() => openLink("https://sparkstudio.kz")}>
+          <View className="flex items-center mt-8">
+            <Text className="text-[#FFFFFF40]">Powered By</Text>
+            <Text className="text-main">Spark Studio</Text>
+          </View>
+        </MyTouchableOpacity>
       </View>
     </Layout>
   );

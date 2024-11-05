@@ -11,10 +11,10 @@ export const StartScreen = () => {
     <Layout>
       <View className=" flex items-center flex-col justify-between h-full mt-36">
         <View className=" flex items-center flex-col">
-          <Text weight="bold" className="text-light text-3xl">
+          <Text weight="bold" className="text-white text-3xl">
             Welcome to
           </Text>
-          <Text weight="bold" className="text-main text-3xl mt-2">
+          <Text weight="bold" className="text-3xl text-main mt-2">
             PC Club
           </Text>
         </View>
@@ -22,7 +22,7 @@ export const StartScreen = () => {
           onPress={() => navigation.navigate("Registration" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
-          <Text weight="bold" className="text-dark text-lg">
+          <Text weight="bold" className=" text-lg">
             Start
           </Text>
         </MyTouchableOpacity>
