@@ -12,6 +12,7 @@ import { BlurView } from "expo-blur";
 import { useActiveItem } from "@shared/model/useActiveItemStore";
 import { useNotificationPopupStore } from "@entities/notification/model/use-notification-popup";
 import { NotificationTab } from "@entities/ui/NotificationTab/notifcation-tab";
+import MyTouchableOpacity from "../MyTouchableOpacity/my-touchable-opacity";
 
 type Notification = {
   id: string;
@@ -116,9 +117,9 @@ export const NotificationPopup = () => {
           <Text className="text-2xl text-white font-bold text-gray-800">
             Notifications
           </Text>
-          <TouchableOpacity onPress={hidePopup}>
+          <MyTouchableOpacity onPress={hidePopup}>
             <Text className="text-main">Close</Text>
-          </TouchableOpacity>
+          </MyTouchableOpacity>
         </View>
         <ScrollView
           className="flex-1 pt-20 px-4"

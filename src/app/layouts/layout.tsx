@@ -9,7 +9,7 @@ import {
 import { BottomTabNavigation } from "@widgets/ui/BottomTabNavigation/bottom-tab-navigation";
 import { Header } from "@features/ui/Header/header";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
-import { Loader } from "@shared/ui/Loader/loader";
+import EqualizerLoader from "@shared/ui/Loader/loader";
 import { PaymentPopup } from "@features/ui/PaymentPopup/payment-popup";
 import { CategoriesPopup } from "@features/ui/CategoriesPopup/categories-popup";
 
@@ -17,6 +17,8 @@ interface ILayout {
   children: React.ReactNode;
   isTab?: boolean;
   isHeader?: boolean;
+  isNotification?: boolean;
+  isPlan?: boolean;
   isLogo?: boolean;
   isScrollable?: boolean;
 }
@@ -27,6 +29,8 @@ export const Layout: React.FC<ILayout> = ({
   isHeader,
   isLogo,
   isScrollable = true,
+  isNotification,
+  isPlan,
 }) => {
   return (
     <ImageBackground
@@ -38,7 +42,10 @@ export const Layout: React.FC<ILayout> = ({
       <PaymentPopup />
       <CategoriesPopup />
       <SafeAreaView className="flex-1">
-        {isHeader && <Header isLogo={isLogo} />}
+
+        {isHeader && <Header isLogo={isLogo}
+            isPlan={isPlan}
+            isNotification={isNotification} />}
         {isScrollable ? (
           <ScrollView
             contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}

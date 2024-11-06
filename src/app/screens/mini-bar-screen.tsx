@@ -11,6 +11,7 @@ const miniBarContent = [
   { item: "Вода ASU, 0.5л.", price: "500₸" },
   { item: "Вода ASU, 0.5л.", price: "500₸" },
   { item: "Вода ASU, 0.5л.", price: "500₸" },
+  { item: "Вода ASU, 0.5л.", price: "500₸" },
 ];
 
 const screenWidth = Dimensions.get("window").width;
@@ -18,7 +19,7 @@ const itemWidth = (screenWidth - 48) / 2;
 
 export const MiniBar = () => {
   return (
-    <Layout isHeader isTab>
+    <Layout isHeader isTab isNotification>
       <View className="flex flex-col mt-8">
         <Text weight="bold" className="text-light text-2xl">
           Мини-Бар

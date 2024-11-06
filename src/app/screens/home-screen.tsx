@@ -8,6 +8,7 @@ import { BarSwiper } from "@features/ui/BarSwiper/bar-swiper";
 import ReusableSwiper from "@features/ui/Swiper/swiper";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
+import EqualizerLoader from "@shared/ui/Loader/loader";
 
 const clubsContent = [
   {
@@ -38,8 +39,10 @@ const clubsContent = [
 ];
 
 export const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
-    <Layout isTab isHeader isLogo>
+    <Layout isTab isHeader isLogo isNotification>
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">

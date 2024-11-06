@@ -33,7 +33,7 @@ const clubsContent = [
 
 export const LocationScreen = () => {
   return (
-    <Layout isTab isHeader>
+    <Layout isTab isHeader isNotification>
       <View className="flex flex-col mt-8">
         <Text weight="bold" className="text-light text-2xl">
           Наши клубы

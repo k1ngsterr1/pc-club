@@ -1,43 +1,58 @@
-import React from "react";
-import { View } from "react-native";
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withRepeat,
-  withTiming,
-  Easing,
-} from "react-native-reanimated";
+import React, { useEffect, useRef } from "react";
+import { View, Animated } from "react-native";
+import Text from "../Text/text";
 
-export const Loader = () => {
-  const scale = useSharedValue(0.8);
-  const opacity = useSharedValue(0.6);
+const BAR_COUNT = 4;
+const ANIMATION_DURATION = 1000;
+const DELAY_BETWEEN_BARS = 200;
 
-  React.useEffect(() => {
-    scale.value = withRepeat(
-      withTiming(1.2, { duration: 1000, easing: Easing.inOut(Easing.ease) }),
-      -1,
-      true
-    );
-    opacity.value = withRepeat(
-      withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.ease) }),
-      -1,
-      true
-    );
+export default function EqualizerLoader() {
+  const animatedValues = useRef(
+    Array(BAR_COUNT)
+      .fill(0)
+      .map(() => new Animated.Value(1))
+  ).current;
+
+  useEffect(() => {
+    const animations = animatedValues.map((value, index) => {
+      return Animated.loop(
+        Animated.sequence([
+          Animated.timing(value, {
+            toValue: 0.3,
+            duration: ANIMATION_DURATION / 2,
+            delay: index * DELAY_BETWEEN_BARS,
+            useNativeDriver: true,
+          }),
+          Animated.timing(value, {
+            toValue: 1,
+            duration: ANIMATION_DURATION / 2,
+            useNativeDriver: true,
+          }),
+        ])
+      );
+    });
+
+    Animated.parallel(animations).start();
+
+    return () => animations.forEach((anim) => anim.stop());
   }, []);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-      opacity: opacity.value,
-    };
-  });
-
   return (
-    <View className="w-full h-full items-center justify-center bg-gray-100">
-      <Animated.View
-        className="w-20 h-20 rounded-full bg-blue-500"
-        style={animatedStyle}
-      />
+    <View className="flex-1 bg-dark h-[100vh] w-[100vw] top-0 absolute z-[200] justify-center items-center">
+      <View className="flex-row h-12 items-end">
+        {animatedValues.map((value, index) => (
+          <Animated.View
+            key={index}
+            className="w-2 h-12 bg-main mx-1 rounded-full"
+            style={{
+              transform: [{ scaleY: value }],
+            }}
+          />
+        ))}
+      </View>
+      <Text className="text-white text-sm mt-4 opacity-75">
+        Powered By <Text className="text-main">Spark Studio</Text>
+      </Text>
     </View>
   );
-};
+}

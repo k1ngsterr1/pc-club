@@ -1,3 +1,4 @@
+import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { BlurView } from "expo-blur";
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
@@ -29,9 +30,9 @@ export const NotificationTab: React.FC<NotificationTabProps> = ({
           <Text className="text-lg font-semibold text-gray-800">
             {notification.title}
           </Text>
-          <TouchableOpacity onPress={() => onRemove(notification.id)}>
+          <MyTouchableOpacity onPress={() => onRemove(notification.id)}>
             <Text className="text-gray-500">X</Text>
-          </TouchableOpacity>
+          </MyTouchableOpacity>
         </View>
         <Text className="text-gray-600 mt-1">{notification.message}</Text>
         <Text className="text-gray-400 text-sm mt-2">{notification.time}</Text>

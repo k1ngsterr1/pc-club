@@ -9,6 +9,7 @@ import { LocationScreen } from "@app/screens/our-clubs-screen";
 import { SettingsScreen } from "@app/screens/settings-screen";
 import { MiniBar } from "@app/screens/mini-bar-screen";
 import { BookScreen } from "@app/screens/book-screen";
+import { PaymentScreen } from "@app/screens/payment-screen";
 import { HoursScreen } from "@app/screens/hours-screen";
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,7 @@ export const AuthStack = () => (
     <Stack.Screen name="Settings" component={SettingsScreen} />
     <Stack.Screen name="MiniBar" component={MiniBar} />
     <Stack.Screen name="BookScreen" component={BookScreen} />
+    <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
     <Stack.Screen name="HoursScreen" component={HoursScreen} />
   </Stack.Navigator>
 );
