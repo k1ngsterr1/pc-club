@@ -28,7 +28,6 @@ export const HoursScreen = () => {
   };
 
   return (
-
     <Layout isHeader isScrollable={false} isNotification>
       <View className="flex flex-col mt-8 items-center">
         <View className="items-start justify-start flex w-full">
@@ -41,9 +40,9 @@ export const HoursScreen = () => {
             data={data}
             value={hours}
             onValueChanged={handleValueChanged}
-            itemHeight={135}
+            itemHeight={130}
             itemTextStyle={{
-              fontSize: 100,
+              fontSize: 95,
               borderRadius: 20,
               color: "white",
               fontWeight: "bold",
@@ -52,7 +51,7 @@ export const HoursScreen = () => {
           />
         </View>
         <MyTouchableOpacity
-          onPress={() => navigation.navigate("HoursScreen" as never)}
+          onPress={() => navigation.navigate("PaymentScreen" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center mb-4"
         >
           <Text weight="bold" className="text-dark text-lg">
