@@ -2,6 +2,7 @@ import { View } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
+import LinkButton from "@shared/ui/LinkButton/link-button";
 
 const clubsContent = [
   {
@@ -35,9 +36,15 @@ export const LocationScreen = () => {
   return (
     <Layout isTab isHeader isNotification>
       <View className="flex flex-col mt-8">
-        <Text weight="bold" className="text-light text-2xl">
-          Наши клубы
-        </Text>
+        <View className="w-full flex flex-row justify-between items-center">
+          <Text weight="bold" className="text-light text-2xl">
+            Наши клубы
+          </Text>
+          <View className="bg-dark w-44 h-12 rounded-lg flex justify-center items-center">
+            <LinkButton text="Смотреть на карте" screen="MapScreen" />
+          </View>
+        </View>
+
         <View className="mt-4">
           {clubsContent.map((club, index) => {
             return (

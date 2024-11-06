@@ -1,5 +1,5 @@
 import { BlurView } from "expo-blur";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { TabSwitcher } from "@shared/ui/TabSwitcher/tab-switcher";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
@@ -37,7 +37,9 @@ export const BookBlock = () => {
   const { showPopup } = useSelectCategoryStore();
 
   const handleTakePlace = (index: number) => {
-    isTake(index);
+    if (!isTake(index)) {
+      Alert.alert("Ошибка", "Вы не можете забронировать более 5 мест.");
+    }
   };
 
   return (
