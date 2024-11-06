@@ -39,8 +39,8 @@ export const BottomTabNavigation = () => {
         />
         <TabButton
           icon={<ClockIcon />}
-          isActive={isActive("Clock")}
-          onPress={() => handleNavigation("Clock")}
+          isActive={isActive("HoursScreen")}
+          onPress={() => handleNavigation("HoursScreen")}
         />
         <TabButton
           icon={<SettingsIcon />}

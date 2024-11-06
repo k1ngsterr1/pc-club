@@ -9,15 +9,15 @@ export const RegistrationScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Layout>
-      <View className=" flex items-center flex-col justify-between mt-36">
-        <View className=" flex items-center flex-col mb-4">
+    <Layout isScrollable={false}>
+      <View className=" flex items-center flex-col mt-36 justify-between h-[50%]]">
+        <View className=" flex items-center flex-col mb-4 w-full">
           <Text weight="bold" className="text-light text-3xl">
             Sign In
           </Text>
-        </View>
-        <View className="w-full items-center mt-20 mb-36">
-          <Input labelText="Phone Number" />
+          <View className="w-full items-center mt-20 mb-36">
+            <Input labelText="Phone Number" />
+          </View>
         </View>
 
         <MyTouchableOpacity

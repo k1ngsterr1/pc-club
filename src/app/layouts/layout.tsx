@@ -11,6 +11,7 @@ import { Header } from "@features/ui/Header/header";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
 import EqualizerLoader from "@shared/ui/Loader/loader";
 import { PaymentPopup } from "@features/ui/PaymentPopup/payment-popup";
+import { CategoriesPopup } from "@features/ui/CategoriesPopup/categories-popup";
 
 interface ILayout {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ interface ILayout {
   isNotification?: boolean;
   isPlan?: boolean;
   isLogo?: boolean;
+  isScrollable?: boolean;
 }
 
 export const Layout: React.FC<ILayout> = ({
@@ -26,6 +28,7 @@ export const Layout: React.FC<ILayout> = ({
   isTab,
   isHeader,
   isLogo,
+  isScrollable = true,
   isNotification,
   isPlan,
 }) => {
@@ -37,23 +40,24 @@ export const Layout: React.FC<ILayout> = ({
     >
       <NotificationPopup />
       <PaymentPopup />
+      <CategoriesPopup />
       <SafeAreaView className="flex-1">
-        {isHeader && (
-          <Header
-            isLogo={isLogo}
+
+        {isHeader && <Header isLogo={isLogo}
             isPlan={isPlan}
-            isNotification={isNotification}
-          />
-        )}
-        <ScrollView
-          contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}
-          className="flex-1"
-        >
+            isNotification={isNotification} />}
+        {isScrollable ? (
+          <ScrollView
+            contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}
+            className="flex-1"
+          >
+            <View className="flex-1 px-4">{children}</View>
+          </ScrollView>
+        ) : (
           <View className="flex-1 px-4">{children}</View>
-        </ScrollView>
+        )}
         {isTab && <BottomTabNavigation />}
       </SafeAreaView>
-      {isTab && <BottomTabNavigation />}
     </ImageBackground>
   );
 };
