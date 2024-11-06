@@ -34,7 +34,7 @@ const takenPlacesContent = [
 
 export const BookBlock = () => {
   const { take, isTake } = useTakePlaceStore();
-  const { showPopup } = useSelectCategoryStore();
+  const { showPopup, selected } = useSelectCategoryStore();
 
   const handleTakePlace = (index: number) => {
     isTake(index);
@@ -68,7 +68,7 @@ export const BookBlock = () => {
             className="bg-main rounded-[32px] w-full h-10 mt-8 flex items-center justify-center"
           >
             <Text weight="medium" className="text-dark text-base">
-              STANDART
+              {selected}
             </Text>
           </MyTouchableOpacity>
           <View className="flex flex-row flex-wrap justify-between items-center mt-4">

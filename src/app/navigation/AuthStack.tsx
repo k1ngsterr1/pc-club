@@ -15,10 +15,7 @@ import { HoursScreen } from "@app/screens/hours-screen";
 const Stack = createNativeStackNavigator();
 
 export const AuthStack = () => (
-  <Stack.Navigator
-    screenOptions={{ headerShown: false }}
-    initialRouteName="Start"
-  >
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="Start" component={StartScreen} />
     <Stack.Screen name="Registration" component={RegistrationScreen} />
     <Stack.Screen
