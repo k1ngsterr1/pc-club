@@ -1,11 +1,12 @@
 import { BlurView } from "expo-blur";
-import { View } from "react-native";
+import { Alert, Vibration, View } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { TabSwitcher } from "@shared/ui/TabSwitcher/tab-switcher";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { TakePlacetButton } from "@shared/ui/TakePlaceButton/take-place-button";
 import { useTakePlaceStore } from "@entities/takeplace/model/useTakePlaceStore";
 import { useSelectCategoryStore } from "@entities/categories/model/use-select-category-store";
+import * as Haptics from 'expo-haptics';
 
 const typesPlace = [
   { text: "Свободно", color: "bg-[#FFFFFF40]" },
@@ -37,7 +38,11 @@ export const BookBlock = () => {
   const { showPopup, selected } = useSelectCategoryStore();
 
   const handleTakePlace = (index: number) => {
-    isTake(index);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    if (!isTake(index)) {
+      Alert.alert("Ошибка", "Вы не можете забронировать более 5 мест.");
+
+    }
   };
 
   return (

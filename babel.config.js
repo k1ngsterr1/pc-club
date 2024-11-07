@@ -18,6 +18,7 @@ module.exports = function (api) {
           root: ["./"],
           alias: {
             "@app": "./src/app",
+            "@assets": "assets",
             "@entities": "./src/entities",
             "@features": "./src/features",
             "@widgets": "./src/widgets",

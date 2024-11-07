@@ -2,15 +2,27 @@ import { create } from "zustand";
 
 interface ITakePlaceStore {
   take: number[];
-  isTake: (index: number) => void;
+  isTake: (index: number) => boolean;
 }
 
-export const useTakePlaceStore = create<ITakePlaceStore>((set) => ({
+export const useTakePlaceStore = create<ITakePlaceStore>((set, get) => ({
   take: [],
-  isTake: (index) =>
-    set((state) => ({
-      take: state.take.includes(index)
-        ? state.take.filter((i) => i !== index)
-        : [...state.take, index],
-    })),
+  isTake: (index) => {
+    const { take } = get();
+
+    if (take.includes(index)) {
+      set({
+        take: take.filter((i) => i !== index),
+      });
+      return true;
+    }
+
+    if (take.length < 5) {
+      set({
+        take: [...take, index],
+      });
+      return true;
+    }
+    return false;
+  },
 }));
