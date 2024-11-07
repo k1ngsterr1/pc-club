@@ -40,9 +40,7 @@ export const LocationScreen = () => {
           <Text weight="bold" className="text-light text-2xl">
             Наши клубы
           </Text>
-          <View className="bg-dark w-44 h-12 rounded-lg flex justify-center items-center">
-            <LinkButton text="Смотреть на карте" screen="MapScreen" />
-          </View>
+          <LinkButton text="Смотреть на карте" screen="MapScreen" />
         </View>
 
         <View className="mt-4">

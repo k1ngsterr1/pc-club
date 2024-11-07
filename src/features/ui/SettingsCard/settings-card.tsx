@@ -3,6 +3,8 @@ import { View } from "react-native";
 import { ReactNode } from "react";
 import Text from "@shared/ui/Text/text";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
+import { useNavigation } from "@react-navigation/native";
+
 
 interface ISettingsCardProps {
   onPress?: () => void;
@@ -17,8 +19,9 @@ export const SettingsCard = ({
   text,
   title,
 }: ISettingsCardProps) => {
+  const navigation = useNavigation();
   return (
-    <MyTouchableOpacity>
+    <MyTouchableOpacity onPress={() => navigation.navigate(`${onPress}`)}>
       <View
         style={{
           borderRadius: 16,

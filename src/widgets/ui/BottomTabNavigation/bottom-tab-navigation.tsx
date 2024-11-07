@@ -9,6 +9,7 @@ import HomeIcon from "@shared/icons/home-icon";
 import LocationIcon from "@shared/icons/location-icon";
 import ClockIcon from "@shared/icons/clock-icon";
 import SettingsIcon from "@shared/icons/settings-icon";
+import ProfileIcon from "@shared/icons/profile-icon";
 
 export const BottomTabNavigation = () => {
   const navigation = useNavigation();
@@ -46,6 +47,11 @@ export const BottomTabNavigation = () => {
           icon={<SettingsIcon />}
           isActive={isActive("Settings")}
           onPress={() => handleNavigation("Settings")}
+        />
+        <TabButton
+          icon={<ProfileIcon />}
+          isActive={isActive("Profile")}
+          onPress={() => handleNavigation("Profile")}
         />
       </View>
     </BlurView>

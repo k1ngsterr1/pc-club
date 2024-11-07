@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Layout } from "@app/layouts/layout";
 import { View } from "react-native";
 import Text from "@shared/ui/Text/text";
@@ -23,9 +23,10 @@ export const HoursScreen = () => {
   }));
 
   const handleValueChanged = ({ item }: { item: IPickerItem }) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     setHours(item.value);
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
+
 
   return (
 
