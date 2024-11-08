@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { RootNavigator } from "@app/navigation/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { LanguageProvider } from "src/context/LanguageContext";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +37,10 @@ export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <RootNavigator />
+        <LanguageProvider>
+
+          <RootNavigator />
+        </LanguageProvider>
       </GestureHandlerRootView>
     </SafeAreaView>
   );

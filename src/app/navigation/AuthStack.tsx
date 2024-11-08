@@ -43,4 +43,5 @@ export const AuthStack = () => (
     <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
     <Stack.Screen name="HoursScreen" component={HoursScreen} />
   </Stack.Navigator>
+
 );

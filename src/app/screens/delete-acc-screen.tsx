@@ -1,27 +1,36 @@
-import { View } from "react-native";
+import { TouchableOpacity, View, Alert } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
-
-const cardsContent = [
-    {
-        title: "Платежные карты",
-    },
-];
+import { useNavigation } from "@react-navigation/native";
 
 export const DeleteAccScreen = () => {
+    const navigation = useNavigation()
+    const handleWarn = () => {
+        Alert.alert(
+            "Предупреждение",
+            "Ваш аккаунт будет удален безвозвратно. Вы уверены?",
+            [
+                { text: "Отмена", style: "cancel" },
+                { text: "Удалить", onPress: () => navigation.navigate('Start') },
+            ]
+        );
+    };
+
     return (
         <Layout isTab isHeader isLogo>
-            <View className="flex flex-col mt-8">
-                <Text weight="bold" className="text-light text-2xl mb-4">
-                    Удалить Аккаунт
+            <Text weight="bold" className="text-light text-2xl mt-8">
+                Удалить Аккаунт
+            </Text>
+            <View className="flex-1 justify-center items-center mt-64">
+                <Text className="text-center mb-4 text-white text-base">
+                    Ваш аккаунт будет удален безвозвратно
                 </Text>
-                {cardsContent.map((item, index) => {
-                    return (
-                        <View className="" key={index}>
-
-                        </View>
-                    );
-                })}
+                <TouchableOpacity
+                    className="bg-[#FF5454] p-3 rounded-full"
+                    onPress={handleWarn}
+                >
+                    <Text className="text-white">Удалить аккаунт</Text>
+                </TouchableOpacity>
             </View>
         </Layout>
     );

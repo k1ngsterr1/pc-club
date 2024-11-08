@@ -3,6 +3,7 @@ import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 import { useNavigation } from "@react-navigation/native";
 import { SettingsCard } from "@features/ui/SettingsCard/settings-card";
+import { useLanguage } from 'src/context/LanguageContext';
 
 // icons
 import CardIcon from "@shared/icons/card-icon";
@@ -10,26 +11,28 @@ import YellowClockIcon from "@shared/icons/yellow-clock-icon";
 import LogOutIcon from "@shared/icons/logout-icon";
 import BinIcon from "@shared/icons/bin-icon";
 
-const settingsContent = [
-    {
-        title: "Платежные карты",
-        icon: <CardIcon />,
-        link: "CardsScreen"
-    },
-    {
-        title: "История",
-        icon: <YellowClockIcon />,
-        link: 'HistoryScreen'
-    },
-    {
-        title: "Удалить Аккаунт",
-        icon: <BinIcon />,
-        link: 'DeleteAccScreen'
-    },
-];
 
 export const ProfileScreen = () => {
+    const { i18n } = useLanguage();
     const navigation = useNavigation();
+
+    const settingsContent = [
+        {
+            title: `${i18n.t('payment')}`,
+            icon: <CardIcon />,
+            link: "CardsScreen"
+        },
+        {
+            title: "История",
+            icon: <YellowClockIcon />,
+            link: 'HistoryScreen'
+        },
+        {
+            title: "Удалить Аккаунт",
+            icon: <BinIcon />,
+            link: 'DeleteAccScreen'
+        },
+    ];
 
     return (
         <Layout isTab isHeader isLogo>
