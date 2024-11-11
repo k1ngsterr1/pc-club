@@ -32,7 +32,6 @@ export const HoursScreen = () => {
 
 
   return (
-
     <Layout isHeader isScrollable={false} isNotification>
       <View className="flex flex-col mt-8 items-center">
         <View className="items-start justify-start flex w-full">
@@ -45,9 +44,9 @@ export const HoursScreen = () => {
             data={data}
             value={hours}
             onValueChanged={handleValueChanged}
-            itemHeight={135}
+            itemHeight={130}
             itemTextStyle={{
-              fontSize: 100,
+              fontSize: 95,
               borderRadius: 20,
               color: "white",
               fontWeight: "bold",
