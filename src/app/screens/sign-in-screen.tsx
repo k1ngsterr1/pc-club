@@ -4,19 +4,20 @@ import { Layout } from "@app/layouts/layout";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
 import Input from "@shared/ui/Input/input";
+import { useLanguage } from "src/context/LanguageContext";
 
 export const RegistrationScreen = () => {
   const navigation = useNavigation();
-
+  const { i18n } = useLanguage()
   return (
     <Layout isScrollable={false}>
       <View className=" flex items-center flex-col mt-36 justify-between h-[50%]]">
         <View className=" flex items-center flex-col mb-4 w-full">
           <Text weight="bold" className="text-light text-3xl">
-            Sign In
+            {i18n.t('signIn')}
           </Text>
           <View className="w-full items-center mt-20 mb-36">
-            <Input labelText="Phone Number" />
+            <Input labelText={i18n.t('phoneNumber')} />
           </View>
         </View>
 
@@ -25,7 +26,7 @@ export const RegistrationScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
-            Sign In
+            {i18n.t('signIn')}
           </Text>
         </MyTouchableOpacity>
       </View>

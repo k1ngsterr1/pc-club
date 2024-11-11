@@ -23,12 +23,12 @@ export const ProfileScreen = () => {
             link: "CardsScreen"
         },
         {
-            title: "История",
+            title: `${i18n.t('history')}`,
             icon: <YellowClockIcon />,
             link: 'HistoryScreen'
         },
         {
-            title: "Удалить Аккаунт",
+            title: `${i18n.t('delete')}`,
             icon: <BinIcon />,
             link: 'DeleteAccScreen'
         },
@@ -38,7 +38,7 @@ export const ProfileScreen = () => {
         <Layout isTab isHeader isLogo>
             <View className="flex flex-col mt-8">
                 <Text weight="bold" className="text-light text-2xl mb-4">
-                    Профиль
+                    {i18n.t('profile')}
                 </Text>
                 {settingsContent.map((item, index) => {
                     return (
@@ -55,7 +55,7 @@ export const ProfileScreen = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('Start')}>
                     <View className="flex flex-row items-center mt-8">
                         <LogOutIcon />
-                        <Text className="text-light ml-2 text-base">Выйти с аккаунта</Text>
+                        <Text className="text-light ml-2 text-base">{i18n.t('logOut')}</Text>
                     </View>
 
 

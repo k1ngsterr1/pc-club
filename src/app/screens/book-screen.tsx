@@ -4,9 +4,12 @@ import Text from "@shared/ui/Text/text";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
 import { BookBlock } from "@features/ui/BookBlock/book-block";
+import { useLanguage } from 'src/context/LanguageContext';
+
 
 export const BookScreen = () => {
   const navigation = useNavigation();
+  const { i18n } = useLanguage();
 
   return (
     <Layout isHeader isNotification>
@@ -24,7 +27,7 @@ export const BookScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center mb-4"
         >
           <Text weight="bold" className="text-dark text-lg">
-            Далее
+            {i18n.t('next')}
           </Text>
         </MyTouchableOpacity>
       </View>

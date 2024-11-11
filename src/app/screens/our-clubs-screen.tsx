@@ -3,6 +3,7 @@ import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
 import LinkButton from "@shared/ui/LinkButton/link-button";
+import { useLanguage } from 'src/context/LanguageContext';
 
 const clubsContent = [
   {
@@ -33,14 +34,15 @@ const clubsContent = [
 ];
 
 export const LocationScreen = () => {
+  const { i18n } = useLanguage()
   return (
     <Layout isTab isHeader isNotification>
       <View className="flex flex-col mt-8">
         <View className="w-full flex flex-row justify-between items-center">
           <Text weight="bold" className="text-light text-2xl">
-            Наши клубы
+            {i18n.t('ourClubs')}
           </Text>
-          <LinkButton text="Смотреть на карте" screen="MapScreen" />
+          <LinkButton text={i18n.t('viewMap')} screen="MapScreen" />
         </View>
 
         <View className="mt-4">
