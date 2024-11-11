@@ -9,6 +9,7 @@ import ReusableSwiper from "@features/ui/Swiper/swiper";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
 import EqualizerLoader from "@shared/ui/Loader/loader";
+import { useLanguage } from 'src/context/LanguageContext';
 
 const clubsContent = [
   {
@@ -40,15 +41,16 @@ const clubsContent = [
 
 export const HomeScreen = () => {
   const navigation = useNavigation();
+  const { i18n } = useLanguage();
 
   return (
     <Layout isTab isHeader isLogo isNotification>
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            Наши Клубы
+            {i18n.t('ourClubs')}
           </Text>
-          <LinkButton text="Смотреть все" screen="OurClubs" />
+          <LinkButton text={i18n.t('viewAll')} screen="OurClubs" />
         </View>
       </View>
       <ReusableSwiper
@@ -68,18 +70,18 @@ export const HomeScreen = () => {
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            Мини-Бар
+            {i18n.t('miniBar')}
           </Text>
-          <LinkButton text="Смотреть все" screen="MiniBar" />
+          <LinkButton text={i18n.t('viewAll')} screen="MiniBar" />
         </View>
       </View>
       <BarSwiper />
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            Наши Акции
+            {i18n.t('promotions')}
           </Text>
-          <LinkButton text="Смотреть все" screen="OurClubs" />
+          <LinkButton text={i18n.t('viewAll')} screen="OurClubs" />
         </View>
       </View>
       <ReusableSwiper

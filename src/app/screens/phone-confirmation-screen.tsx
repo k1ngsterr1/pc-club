@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { ConfirmInput } from "@shared/ui/ConfirmInput/ui/confirm-input";
 import { useRef, useEffect } from "react";
 import { useActiveItem } from "@shared/model/useActiveItemStore";
+import { useLanguage } from "src/context/LanguageContext";
 
 const inputs = [1, 2, 3, 4];
 
@@ -29,13 +30,14 @@ export const PhoneConfirmationScreen = () => {
   }, []);
 
   const navigation = useNavigation();
+  const { i18n } = useLanguage()
 
   return (
     <Layout isScrollable={false}>
       <View className="flex items-center flex-col justify-between h-[50%] mt-36">
         <View className="flex items-center flex-col mb-4">
-          <Text weight="bold" className="text-light text-3xl">
-            Confirm Your Phone
+          <Text weight="bold" className="text-light text-3xl text-center">
+            {i18n.t('confirmMessage')}
           </Text>
           <View className="flex flex-row mb-32 mt-12 items-center">
             {inputs.map((input, index) => (
@@ -56,7 +58,7 @@ export const PhoneConfirmationScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
-            Confirm
+            {i18n.t('confirmButton')}
           </Text>
         </MyTouchableOpacity>
       </View>

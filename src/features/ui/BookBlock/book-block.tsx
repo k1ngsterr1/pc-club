@@ -7,12 +7,7 @@ import { TakePlacetButton } from "@shared/ui/TakePlaceButton/take-place-button";
 import { useTakePlaceStore } from "@entities/takeplace/model/useTakePlaceStore";
 import { useSelectCategoryStore } from "@entities/categories/model/use-select-category-store";
 import * as Haptics from 'expo-haptics';
-
-const typesPlace = [
-  { text: "Свободно", color: "bg-[#FFFFFF40]" },
-  { text: "Занято", color: "bg-[#300060]" },
-  { text: "Выбрано", color: "bg-[#EBFF00]" },
-];
+import { useLanguage } from 'src/context/LanguageContext';
 
 const takenPlacesContent = [
   { number: 1, taken: false },
@@ -36,6 +31,13 @@ const takenPlacesContent = [
 export const BookBlock = () => {
   const { take, isTake } = useTakePlaceStore();
   const { showPopup } = useSelectCategoryStore();
+  const { i18n } = useLanguage()
+
+  const typesPlace = [
+    { text: `${i18n.t('free')}`, color: "bg-[#FFFFFF40]" },
+    { text: `${i18n.t('occupied')}`, color: "bg-[#300060]" },
+    { text: `${i18n.t('selected')}`, color: "bg-[#EBFF00]" },
+  ];
 
   const handleTakePlace = (index: number) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
@@ -55,7 +57,7 @@ export const BookBlock = () => {
     >
       <BlurView intensity={16} tint="light">
         <View className="w-full items-center flex py-5 px-8">
-          <TabSwitcher tabs={["Посадка", "О залах"]} />
+          <TabSwitcher tabs={[`${i18n.t('boarding')}`, `${i18n.t('aboutHalls')}`]} />
           <View className=" flex flex-row justify-between w-full mt-8">
             {typesPlace.map((type, index) => {
               return (

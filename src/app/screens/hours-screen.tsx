@@ -7,6 +7,8 @@ import WheelPicker from "@quidone/react-native-wheel-picker";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
 import * as Haptics from "expo-haptics";
+import { useLanguage } from 'src/context/LanguageContext';
+
 
 interface IPickerItem {
   value: number;
@@ -16,6 +18,7 @@ interface IPickerItem {
 export const HoursScreen = () => {
   const { hours, setHours } = useChooseHoursStore();
   const navigation = useNavigation();
+  const { i18n } = useLanguage()
 
   const data = [...Array(24).keys()].map((index) => ({
     value: index + 1,
@@ -34,7 +37,7 @@ export const HoursScreen = () => {
       <View className="flex flex-col mt-8 items-center">
         <View className="items-start justify-start flex w-full">
           <Text weight="bold" className="text-light text-2xl ">
-            Сколько часов вы хотите?
+            {i18n.t('hours')}
           </Text>
         </View>
         <View className="-mt-14">
@@ -53,11 +56,11 @@ export const HoursScreen = () => {
           />
         </View>
         <MyTouchableOpacity
-          onPress={() => navigation.navigate("HoursScreen" as never)}
+          onPress={() => navigation.navigate("PaymentScreen" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center mb-4"
         >
           <Text weight="bold" className="text-dark text-lg">
-            Далее
+            {i18n.t('next')}
           </Text>
         </MyTouchableOpacity>
       </View>

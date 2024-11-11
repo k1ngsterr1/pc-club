@@ -5,11 +5,11 @@ import { Layout } from "@app/layouts/layout";
 import { SettingsCard } from "@features/ui/SettingsCard/settings-card";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useLanguage } from 'src/context/LanguageContext';
+import { LanguageSwitcher } from '@shared/ui/LanguageSwitcher';
 
 // icons
 import CardIcon from "@shared/icons/card-icon";
 import CityIcon from "@shared/icons/city-icon";
-import LanguageIcon from "@shared/icons/language-icon";
 
 const openLink = async (url: string) => {
   const supported = await Linking.canOpenURL(url);
@@ -20,11 +20,11 @@ const openLink = async (url: string) => {
 };
 
 export const SettingsScreen = () => {
-  const { i18n, changeLanguage } = useLanguage();
+  const { i18n } = useLanguage();
 
   const settingsContent = [
     {
-      title: `${i18n.t('cards')}`,
+      title: `${i18n.t('payment')}`,
       icon: <CardIcon />,
       text: "Kaspi Bank Карта: 1234 1234 ****",
     },
@@ -50,17 +50,7 @@ export const SettingsScreen = () => {
             />
           </View>
         ))}
-        <View className="flex flex-row gap-4 mt-2">
-          <MyTouchableOpacity onPress={() => changeLanguage('en')}>
-            <Text className="text-white">English</Text>
-          </MyTouchableOpacity>
-          <MyTouchableOpacity onPress={() => changeLanguage('ru')}>
-            <Text className="text-white">Русский</Text>
-          </MyTouchableOpacity>
-          <MyTouchableOpacity onPress={() => changeLanguage('kz')}>
-            <Text className="text-white">Қазақша</Text>
-          </MyTouchableOpacity>
-        </View>
+        <LanguageSwitcher />
 
         <MyTouchableOpacity onPress={() => openLink("https://sparkstudio.kz")}>
           <View className="flex items-center mt-8">

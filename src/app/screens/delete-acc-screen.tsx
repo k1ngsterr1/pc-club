@@ -2,16 +2,19 @@ import { TouchableOpacity, View, Alert } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 import { useNavigation } from "@react-navigation/native";
+import { useLanguage } from 'src/context/LanguageContext';
+
 
 export const DeleteAccScreen = () => {
     const navigation = useNavigation()
+    const { i18n } = useLanguage()
     const handleWarn = () => {
         Alert.alert(
-            "Предупреждение",
-            "Ваш аккаунт будет удален безвозвратно. Вы уверены?",
+            `${i18n.t('warning')}`,
+            `${i18n.t('warningMessage')}`,
             [
-                { text: "Отмена", style: "cancel" },
-                { text: "Удалить", onPress: () => navigation.navigate('Start') },
+                { text: `${i18n.t('cancellation')}`, style: "cancel" },
+                { text: `${i18n.t('deleteButton')}`, onPress: () => navigation.navigate('Start') },
             ]
         );
     };
@@ -19,17 +22,17 @@ export const DeleteAccScreen = () => {
     return (
         <Layout isTab isHeader isLogo>
             <Text weight="bold" className="text-light text-2xl mt-8">
-                Удалить Аккаунт
+                {i18n.t('delete')}
             </Text>
             <View className="flex-1 justify-center items-center mt-64">
                 <Text className="text-center mb-4 text-white text-base">
-                    Ваш аккаунт будет удален безвозвратно
+                    {i18n.t('deleteMessage')}
                 </Text>
                 <TouchableOpacity
                     className="bg-[#FF5454] p-3 rounded-full"
                     onPress={handleWarn}
                 >
-                    <Text className="text-white">Удалить аккаунт</Text>
+                    <Text className="text-white">{i18n.t('delete')}</Text>
                 </TouchableOpacity>
             </View>
         </Layout>

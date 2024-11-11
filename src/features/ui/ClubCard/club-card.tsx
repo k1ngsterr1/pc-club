@@ -5,6 +5,8 @@ import { Separator } from "@shared/ui/Separator/separator";
 import BookingIcon from "@shared/icons/booking-icon";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
+import { useLanguage } from 'src/context/LanguageContext';
+
 
 interface IClubCardProps {
   clubName: string;
@@ -24,6 +26,8 @@ export const ClubCard = ({
   distance,
 }: IClubCardProps) => {
   const navigation = useNavigation();
+  const { i18n } = useLanguage();
+
 
   return (
     <View
@@ -65,7 +69,7 @@ export const ClubCard = ({
               <View className="w-full items-center justify-center bg-main rounded-[32px] h-7 ">
                 <Text className="text-dark text-base">24/7</Text>
               </View>
-              <Text className="text-main">Время работы</Text>
+              <Text className="text-main">{i18n.t('workTime')}</Text>
             </View>
             <View className="w-[35%] flex items-center gap-y-2 flex-col">
               <MyTouchableOpacity
@@ -76,7 +80,7 @@ export const ClubCard = ({
                   <BookingIcon />
                 </View>
               </MyTouchableOpacity>
-              <Text className="text-main">Бронировать</Text>
+              <Text className="text-main">{i18n.t('book')}</Text>
             </View>
           </View>
         </View>
