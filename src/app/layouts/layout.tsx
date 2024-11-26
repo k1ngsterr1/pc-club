@@ -42,10 +42,13 @@ export const Layout: React.FC<ILayout> = ({
       <PaymentPopup />
       <CategoriesPopup />
       <SafeAreaView className="flex-1">
-
-        {isHeader && <Header isLogo={isLogo}
+        {isHeader && (
+          <Header
+            isLogo={isLogo}
             isPlan={isPlan}
-            isNotification={isNotification} />}
+            isNotification={isNotification}
+          />
+        )}
         {isScrollable ? (
           <ScrollView
             contentContainerStyle={{ paddingBottom: isTab ? 80 : 0 }}

@@ -7,6 +7,7 @@ import { TakePlacetButton } from "@shared/ui/TakePlaceButton/take-place-button";
 import { useTakePlaceStore } from "@entities/takeplace/model/useTakePlaceStore";
 import { useSelectCategoryStore } from "@entities/categories/model/use-select-category-store";
 import { useLanguage } from "src/context/LanguageContext";
+import * as Haptics from "expo-haptics";
 
 const takenPlacesContent = [
   { number: 1, taken: false },

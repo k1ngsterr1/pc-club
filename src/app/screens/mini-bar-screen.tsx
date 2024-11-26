@@ -2,8 +2,7 @@ import { Layout } from "@app/layouts/layout";
 import { View, Dimensions } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { MiniBarcCard } from "@features/ui/MiniBarCard/mini-bar-card";
-import { useLanguage } from 'src/context/LanguageContext';
-
+import { useLanguage } from "src/context/LanguageContext";
 
 const miniBarContent = [
   { item: "Вода ASU, 0.5л.", price: "500₸" },
@@ -17,25 +16,26 @@ const miniBarContent = [
 ];
 
 const screenWidth = Dimensions.get("window").width;
-const itemWidth = (screenWidth - 48) / 2;
 
 export const MiniBar = () => {
-  const { i18n } = useLanguage()
+  const { i18n } = useLanguage();
   return (
     <Layout isHeader isTab isNotification>
-      <View className="flex flex-col mt-8">
+      <View className="flex flex-col mt-8 mb-4">
         <Text weight="bold" className="text-light text-2xl">
-          {i18n.t('miniBar')}
+          {i18n.t("miniBar")}
         </Text>
-        <View className="flex flex-row flex-wrap  gap-2 mt-4">
+        <View
+          className="gap-x-4 gap-y-3"
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginTop: 16,
+          }}
+        >
           {miniBarContent.map((item, index) => (
-            <View
-              key={index}
-              style={{
-                width: itemWidth,
-                marginVertical: 8,
-              }}
-            >
+            <View key={index} style={{}}>
               <MiniBarcCard item={item.item} price={item.price} />
             </View>
           ))}
