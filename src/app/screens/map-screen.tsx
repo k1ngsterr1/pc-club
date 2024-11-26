@@ -73,17 +73,17 @@ export const MapScreen = () => {
                     </Marker>
                 ))}
 
-                {location && (
+                {/* {location && (
                     <Marker
                         coordinate={{
                             latitude: location.latitude,
                             longitude: location.longitude,
                         }}
                         rotation={heading}
-                        anchor={{ x: 0.5, y: 0.5 }}
+                    anchor={{ x: 0.5, y: 0.5 }}
                     >
                     </Marker>
-                )}
+                )} */}
             </MapView>
 
             <View style={styles.backButton}>
