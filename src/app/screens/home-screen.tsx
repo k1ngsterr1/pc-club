@@ -9,7 +9,7 @@ import ReusableSwiper from "@features/ui/Swiper/swiper";
 import { ClubCard } from "@features/ui/ClubCard/club-card";
 import { NotificationPopup } from "@shared/ui/NotificationPopup/notification-popup";
 import EqualizerLoader from "@shared/ui/Loader/loader";
-import { useLanguage } from 'src/context/LanguageContext';
+import { useLanguage } from "src/context/LanguageContext";
 
 const clubsContent = [
   {
@@ -48,9 +48,9 @@ export const HomeScreen = () => {
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            {i18n.t('ourClubs')}
+            {i18n.t("ourClubs")}
           </Text>
-          <LinkButton text={i18n.t('viewAll')} screen="OurClubs" />
+          <LinkButton text={i18n.t("viewAll")} screen="OurClubs" />
         </View>
       </View>
       <ReusableSwiper
@@ -65,23 +65,22 @@ export const HomeScreen = () => {
           />
         )}
         height={273}
-        gap={8}
       />
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            {i18n.t('miniBar')}
+            {i18n.t("miniBar")}
           </Text>
-          <LinkButton text={i18n.t('viewAll')} screen="MiniBar" />
+          <LinkButton text={i18n.t("viewAll")} screen="MiniBar" />
         </View>
       </View>
       <BarSwiper />
       <View className="mt-8">
         <View className="flex flex-row items-center justify-between">
           <Text weight="bold" className="text-light text-2xl">
-            {i18n.t('promotions')}
+            {i18n.t("promotions")}
           </Text>
-          <LinkButton text={i18n.t('viewAll')} screen="OurClubs" />
+          <LinkButton text={i18n.t("viewAll")} screen="OurClubs" />
         </View>
       </View>
       <ReusableSwiper

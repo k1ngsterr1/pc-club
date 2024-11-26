@@ -15,7 +15,7 @@ export const PhoneConfirmationScreen = () => {
 
   const inputRefs = inputs.map(() => useRef<TextInput>(null));
 
-  const handleActive = (index: number) => {
+  const handleActive = (index: number | string) => {
     setActive(index);
   };
 
@@ -30,24 +30,25 @@ export const PhoneConfirmationScreen = () => {
   }, []);
 
   const navigation = useNavigation();
-  const { i18n } = useLanguage()
+  const { i18n } = useLanguage();
 
   return (
     <Layout isScrollable={false}>
       <View className="flex items-center flex-col justify-between h-[50%] mt-36">
         <View className="flex items-center flex-col mb-4">
           <Text weight="bold" className="text-light text-3xl text-center">
-            {i18n.t('confirmMessage')}
+            {i18n.t("confirmMessage")}
           </Text>
           <View className="flex flex-row mb-32 mt-12 items-center">
             {inputs.map((input, index) => (
               <View key={input} className={`${index !== 0 ? "ml-4" : ""}`}>
                 <ConfirmInput
-                  index={input}
+                  index={index}
                   active={active}
                   handleActive={handleActive}
                   inputRef={inputRefs[index]}
                   onNext={() => handleNextInput(index)}
+                  handleNextInput={handleNextInput}
                 />
               </View>
             ))}
@@ -58,7 +59,7 @@ export const PhoneConfirmationScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
-            {i18n.t('confirmButton')}
+            {i18n.t("confirmButton")}
           </Text>
         </MyTouchableOpacity>
       </View>

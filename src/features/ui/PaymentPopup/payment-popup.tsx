@@ -94,7 +94,7 @@ export const PaymentPopup = () => {
         tint="light"
         className="rounded-t-3xl overflow-hidden"
       >
-        <View className="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-2" />
+        <View className="w-12 h-1 bg-gray rounded-full mx-auto mt-2" />
         <ScrollView className="bg-opacity-20 p-6">
           <Text className="text-2xl font-bold mb-4 text-center text-white">
             Confirm Payment

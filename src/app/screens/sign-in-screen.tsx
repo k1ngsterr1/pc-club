@@ -8,16 +8,16 @@ import { useLanguage } from "src/context/LanguageContext";
 
 export const RegistrationScreen = () => {
   const navigation = useNavigation();
-  const { i18n } = useLanguage()
+  const { i18n } = useLanguage();
   return (
     <Layout isScrollable={false}>
       <View className=" flex items-center flex-col mt-36 justify-between h-[50%]]">
         <View className=" flex items-center flex-col mb-4 w-full">
           <Text weight="bold" className="text-light text-3xl">
-            {i18n.t('signIn')}
+            {i18n.t("signIn")}
           </Text>
           <View className="w-full items-center mt-20 mb-36">
-            <Input labelText={i18n.t('phoneNumber')} />
+            <Input labelText={i18n.t("phoneNumber")} />
           </View>
         </View>
 
@@ -26,7 +26,7 @@ export const RegistrationScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
-            {i18n.t('signIn')}
+            {i18n.t("signIn")}
           </Text>
         </MyTouchableOpacity>
       </View>
