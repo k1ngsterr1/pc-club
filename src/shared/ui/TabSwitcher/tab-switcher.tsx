@@ -39,7 +39,7 @@ export const TabSwitcher: React.FC<TabSwitcherProps> = ({ tabs }) => {
       <BlurView
         intensity={16}
         tint="light"
-        className="flex-row w-52 h-9 bg-[rgba(255,255,255,0.05)] rounded-full relative"
+        className="flex-row w-48 h-9 bg-[rgba(255,255,255,0.05)] rounded-full relative"
       >
         <Animated.View
           className="absolute w-1/2 h-full bg-[#EBFF00] rounded-full"

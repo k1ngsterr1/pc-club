@@ -12,35 +12,34 @@ export const RegistrationScreen = () => {
   const navigation = useNavigation();
   const { i18n } = useLanguage();
 
-  const handleSendCode = async () => {
-    if (!phoneNumber) {
-      Alert.alert("Ошибка", "Введите номер телефона.");
-      return;
-    }
+  // const handleSendCode = async () => {
+  //   if (!phoneNumber) {
+  //     Alert.alert("Ошибка", "Введите номер телефона.");
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch("http://localhost:5000/sendCode", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ phoneNumber }),
-      });
+  //   try {
+  //     const response = await fetch("http://localhost:5000/sendCode", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ phoneNumber }),
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      if (response.ok) {
-        // Код успешно отправлен
-        Alert.alert("Код отправлен", "Пожалуйста, проверьте ваш WhatsApp.");
-        navigation.navigate("PhoneConfirmation");
-      } else {
-        Alert.alert("Ошибка", "Не удалось отправить код.");
-      }
-    } catch (error) {
-      console.error(error);
-      Alert.alert("Ошибка", "Что-то пошло не так.");
-    }
-  };
+  //     if (response.ok) {
+  //       Alert.alert("Код отправлен", "Пожалуйста, проверьте ваш WhatsApp.");
+  //       navigation.navigate("PhoneConfirmation");
+  //     } else {
+  //       Alert.alert("Ошибка", "Не удалось отправить код.");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     Alert.alert("Ошибка", "Что-то пошло не так.");
+  //   }
+  // };
 
   return (
     <Layout isScrollable={false}>
@@ -55,7 +54,8 @@ export const RegistrationScreen = () => {
         </View>
 
         <MyTouchableOpacity
-          onPress={handleSendCode}
+          // onPress={handleSendCode}
+          onPress={() => navigation.navigate("PhoneConfirmation" as never)}
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center"
         >
           <Text weight="bold" className="text-dark text-lg">
