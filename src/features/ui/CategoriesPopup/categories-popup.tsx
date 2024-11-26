@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   View,
   Animated,
   Dimensions,
-  ScrollView,
-  PanResponder,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { BlurView } from "expo-blur";
 import Text from "@shared/ui/Text/text";
@@ -14,100 +13,126 @@ import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opaci
 const { height } = Dimensions.get("window");
 
 export const CategoriesPopup = () => {
-  const { isVisible, hidePopup } = useSelectCategoryStore();
+  const { isVisible, hidePopup, setSelected } = useSelectCategoryStore();
   const translateY = useRef(new Animated.Value(height)).current;
-  const panY = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(0.8)).current;
+  const opacity = useRef(new Animated.Value(0)).current;
 
-  const resetPositionAnim = Animated.timing(panY, {
-    toValue: 0,
-    duration: 300,
-    useNativeDriver: true,
-  });
-
-  const closeAnim = Animated.timing(translateY, {
-    toValue: height,
-    duration: 300,
-    useNativeDriver: true,
-  });
-
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: (_, gestureState) => {
-        return gestureState.dy > 5;
-      },
-      onPanResponderMove: Animated.event([null, { dy: panY }], {
-        useNativeDriver: false,
+  const closeAnim = (category: string) => {
+    Animated.parallel([
+      Animated.timing(translateY, {
+        toValue: height, // Move popup down off-screen
+        duration: 300,
+        useNativeDriver: true,
       }),
-      onPanResponderRelease: (_, gestureState) => {
-        if (gestureState.dy > 50) {
-          closeAnim.start(() => {
-            hidePopup();
-            panY.setValue(0);
-          });
-        } else {
-          resetPositionAnim.start();
-        }
-      },
-    })
-  ).current;
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scale, {
+        toValue: 0.8,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      hidePopup();
+      setSelected(category);
+    });
+  };
 
   useEffect(() => {
     if (isVisible) {
-      Animated.spring(translateY, {
-        toValue: 0,
-        useNativeDriver: true,
-        tension: 5,
-        friction: 7,
-      }).start();
-    } else {
-      closeAnim.start();
+      // Reveal animation
+      Animated.parallel([
+        Animated.spring(translateY, {
+          toValue: 0,
+          useNativeDriver: true,
+          tension: 5,
+          friction: 7,
+        }),
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.spring(scale, {
+          toValue: 1,
+          friction: 6,
+          tension: 50,
+          useNativeDriver: true,
+        }),
+      ]).start();
     }
   }, [isVisible]);
 
-  const translateYWithPan = Animated.add(translateY, panY);
+  if (!isVisible) return null;
 
   return (
-    <Animated.View
-      style={[
-        {
+    <View
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 50,
+      }}
+    >
+      <View style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.4)" }} />
+
+      <Animated.View
+        style={{
           position: "absolute",
+          top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          transform: [{ translateY: translateYWithPan }],
-        },
-      ]}
-      className="z-50"
-      {...panResponder.panHandlers}
-    >
-      <BlurView
-        intensity={80}
-        tint="light"
-        className="rounded-t-3xl overflow-hidden"
+          justifyContent: "center",
+          alignItems: "center",
+          opacity: opacity,
+          transform: [{ translateY }, { scale }],
+        }}
       >
-        <View className="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-2" />
-        <ScrollView className="bg-opacity-20 p-6">
-          <Text className="text-2xl font-bold mb-4 text-center text-white">
-            Select category
-          </Text>
-          <View className="flex flex-row w-full justify-between">
-            <MyTouchableOpacity className="bg-main rounded-full py-3 mt-4 px-6">
-              <Text className="text-dark font-semibold text-center">
-                STANDART
-              </Text>
-            </MyTouchableOpacity>
-            <MyTouchableOpacity className="bg-main rounded-full py-3 mt-4 px-6">
-              <Text className="text-dark font-semibold text-center">
-                PREMIUM
-              </Text>
-            </MyTouchableOpacity>
-            <MyTouchableOpacity className="bg-main rounded-full py-3 mt-4 px-5">
-              <Text className="text-dark font-semibold text-center">VIP </Text>
-            </MyTouchableOpacity>
+        <BlurView
+          intensity={80}
+          tint="light"
+          className="rounded-3xl overflow-hidden w-[90%] mx-auto"
+        >
+          <View className="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-2" />
+          <View className="bg-opacity-20 p-5">
+            <Text className="text-2xl font-bold mb-4 text-center text-white">
+              Select category
+            </Text>
+            <View className="flex flex-row w-full justify-between mb-2">
+              <MyTouchableOpacity
+                onPress={() => closeAnim("STANDARD")}
+                className="bg-main w-24 mt-4 h-16 items-center justify-center rounded-lg"
+              >
+                <Text weight="medium" className="text-dark text-center">
+                  STANDART
+                </Text>
+              </MyTouchableOpacity>
+              <MyTouchableOpacity
+                onPress={() => closeAnim("PREMIUM")}
+                className="bg-main w-24 mt-4 h-16 items-center justify-center rounded-lg"
+              >
+                <Text weight="medium" className="text-dark text-center">
+                  PREMIUM
+                </Text>
+              </MyTouchableOpacity>
+              <MyTouchableOpacity
+                onPress={() => closeAnim("VIP")}
+                className="bg-main w-24 mt-4 h-16 items-center justify-center rounded-lg"
+              >
+                <Text weight="medium" className="text-dark text-center">
+                  VIP
+                </Text>
+              </MyTouchableOpacity>
+            </View>
           </View>
-        </ScrollView>
-      </BlurView>
-    </Animated.View>
+        </BlurView>
+      </Animated.View>
+    </View>
   );
 };
