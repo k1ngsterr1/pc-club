@@ -1,4 +1,4 @@
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, Alert } from "react-native";
 import Text from "@shared/ui/Text/text";
 import { Layout } from "@app/layouts/layout";
 import { useNavigation } from "@react-navigation/native";
@@ -14,6 +14,17 @@ import BinIcon from "@shared/icons/bin-icon";
 export const ProfileScreen = () => {
   const { i18n } = useLanguage();
   const navigation = useNavigation();
+
+  const handleWarn = () => {
+    Alert.alert(`${i18n.t("warning")}`, `${i18n.t("warningMessage")}`, [
+      { text: `${i18n.t("cancellation")}`, style: "cancel" },
+      {
+        text: `${i18n.t("deleteButton")}`,
+        onPress: () => navigation.navigate("Start"),
+      },
+    ]);
+  };
+
 
   const settingsContent = [
     {
