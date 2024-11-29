@@ -38,6 +38,7 @@
     "expo-system-ui": "~4.0.4",
     "expo-web-browser": "~14.0.1",
     "express": "^4.21.1",
+    "firebase": "^11.0.2",
     "gsap": "^3.12.5",
     "i18n-js": "^4.5.0",
     "i18next": "^23.16.5",
