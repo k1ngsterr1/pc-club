@@ -5,6 +5,8 @@ import { RoundedButton } from "@shared/ui/BackButton/rounded-button";
 import { useNavigation } from "@react-navigation/native";
 import BackArrowIcon from "@shared/icons/back-arrow-icon";
 import * as Location from 'expo-location';
+import { clubsContent } from "@shared/content/clubDistance";
+
 
 export const MapScreen = () => {
     const [location, setLocation] = useState(null);
@@ -58,14 +60,14 @@ export const MapScreen = () => {
                 followsUserLocation={false
                 }
             >
-                {markers.map((marker, index) => (
+                {clubsContent.map((marker, index) => (
                     <Marker
                         key={index}
                         coordinate={{
                             latitude: marker.latitude,
                             longitude: marker.longitude,
                         }}
-                        title={marker.title}
+                        title={marker.clubName}
                     >
                         <TouchableOpacity onPress={() => navigation.navigate('BookScreen')}>
                             <Image source={require('../../../assets/images/MapPoint.png')} />

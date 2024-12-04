@@ -54,6 +54,7 @@ const translations = {
     welcomeYellow: "PC Club",
     startButton: "Start",
     viewMap: "View on the map",
+    nearestClub: "The nearest club"
   },
   ru: {
     cards: "Cпособ оплаты",
@@ -97,6 +98,7 @@ const translations = {
     welcomeYellow: "ПК Клуб",
     startButton: "Начать",
     viewMap: "Смотреть на карте",
+    nearestClub: "Ближайший клуб"
   },
   kz: {
     cards: "Төлем әдісі",
@@ -141,6 +143,8 @@ const translations = {
     welcomeYellow: "ПК Клуб",
     startButton: "Бастау",
     viewMap: "Картадан қараңыз",
+    nearestClub: "Жақын клуб"
+
   },
 };
 const i18n = new I18n(translations);
