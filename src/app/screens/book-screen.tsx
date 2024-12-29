@@ -5,7 +5,7 @@ import Text from "@shared/ui/Text/text";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import { useNavigation } from "@react-navigation/native";
 import { BookBlock } from "@features/ui/BookBlock/book-block";
-import { useLanguage } from 'src/context/LanguageContext';
+import { useLanguage } from "src/context/LanguageContext";
 import { checkAgeAndTime, isValidIIN } from "src/utils/ageChecker";
 
 export const BookScreen = () => {
@@ -14,7 +14,6 @@ export const BookScreen = () => {
   const [isVerified, setIsVerified] = useState(false);
 
   const handleBooking = () => {
-
     if (isVerified) {
       navigation.navigate("HoursScreen" as never);
       return;
@@ -23,7 +22,7 @@ export const BookScreen = () => {
     const now = new Date();
     const currentHour = now.getHours();
 
-    if (currentHour < 22) {
+    if (currentHour < 13) {
       setIsVerified(true);
       return;
     }
@@ -56,7 +55,10 @@ export const BookScreen = () => {
                 },
               ]);
             } else {
-              Alert.alert("Ограничение", "Вам нельзя бронировать место согласно правилам клуба.");
+              Alert.alert(
+                "Ограничение",
+                "Вам нельзя бронировать место согласно правилам клуба."
+              );
             }
           },
         },
@@ -81,7 +83,7 @@ export const BookScreen = () => {
           className="bg-main rounded-[32px] w-64 h-12 flex items-center justify-center mb-4"
         >
           <Text weight="bold" className="text-dark text-lg">
-            {i18n.t('next')}
+            {i18n.t("next")}
           </Text>
         </MyTouchableOpacity>
       </View>

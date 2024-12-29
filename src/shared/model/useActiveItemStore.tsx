@@ -6,6 +6,6 @@ interface IActiveItem {
 }
 
 export const useActiveItem = create<IActiveItem>((set) => ({
-  active: 1,
+  active: 0,
   setActive: (index) => set(() => ({ active: index })),
 }));
